@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DarlyRévise Studio, assistant de révision étudiant.">
+  <title>DarlyRévise Studio | USTM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="navbar">
+    <a class="brand" href="#"><span class="brand-icon">D</span><span>Darly<span class="blue">Révise</span><small>STUDIO · USTM</small></span></a>
+    <span class="status"><i></i> Espace de révision</span>
+  </header>
+
+  <main class="layout">
+    <section class="intro">
+      <div class="tag">APPRENDRE · COMPRENDRE · PROGRESSER</div>
+      <h1>Révise mieux.<br><span>Progresse à ton rythme.</span></h1>
+      <p class="lead">Transforme tes notes de cours en supports de révision clairs et organise tes séances de travail depuis un seul espace.</p>
+      <div class="mini-stats">
+        <div><b>01</b><span>Colle ton cours</span></div>
+        <div><b>02</b><span>Choisis un outil</span></div>
+        <div><b>03</b><span>Travaille tes notions</span></div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="section-heading">
+        <div><span class="eyebrow">TON ESPACE DE TRAVAIL</span><h2>Préparer une révision</h2></div>
+        <span class="pill">Moteur C++</span>
+      </div>
+      <div class="fields">
+        <div class="field">
+          <label for="chapter">Chapitre ou thème</label>
+          <input id="chapter" placeholder="Ex. : Les circuits électriques">
+        </div>
+        <div class="field">
+          <label for="subject">Matière <span>(facultatif)</span></label>
+          <input id="subject" placeholder="Ex. : Physique">
+        </div>
+      </div>
+      <div class="field">
+        <label for="course">Contenu du cours</label>
+        <textarea id="course" rows="7" placeholder="Colle ici tes notes, définitions ou extraits de cours..."></textarea>
+        <div class="hint">Astuce : plus tu ajoutes de contenu, plus les propositions pourront s'appuyer sur tes notes.</div>
+      </div>
+
+      <div class="tool-grid">
+        <button class="tool-card selected" data-action="summary"><span class="tool-icon violet">✦</span><span><b>Créer un résumé</b><small>Repérer les idées à retenir</small></span><span class="arrow">↗</span></button>
+        <button class="tool-card" data-action="quiz"><span class="tool-icon mint">?</span><span><b>Générer un quiz</b><small>S'entraîner avec des questions</small></span><span class="arrow">↗</span></button>
+        <button class="tool-card" data-action="plan"><span class="tool-icon amber">◷</span><span><b>Planifier ma séance</b><small>Organiser 30 minutes de travail</small></span><span class="arrow">↗</span></button>
+      </div>
+      <button id="generate" class="generate"><span>Générer mon support</span><span>→</span></button>
+
+      <section class="output">
+        <div class="output-top"><div><span class="eyebrow">TON SUPPORT</span><h3 id="output-title">Prêt à commencer ?</h3></div><button id="copy" class="copy" disabled>Copier</button></div>
+        <div id="result" class="result"><div class="placeholder"><span>✧</span><p>Ton résultat apparaîtra ici.<br>Choisis un outil et lance la génération.</p></div></div>
+        <p id="message" class="message" role="status">Les résultats sont des aides de révision : vérifie-les avec ton cours.</p>
+      </section>
+    </section>
+
+    <footer><span>© DarlyRévise Studio · USTM</span><span>Un outil pour accompagner ton apprentissage.</span></footer>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
